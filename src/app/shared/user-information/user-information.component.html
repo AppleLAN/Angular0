@@ -1,0 +1,36 @@
+<h3>This is the user information component</h3>
+<p>User Information :</p>
+<p>name: {{ userInformation.nombre }}</p>
+<p>height: {{ userInformation.altura }}</p>
+<p>Partner Information:</p>
+<div *ngIf="partnerInformation">
+  <p>name: {{ partnerInformation.nombre }}</p>
+  <p>height: {{ partnerInformation.altura }}</p>
+</div>
+
+<h3>Autos del usuario</h3>
+
+<ng-container *ngFor="let car of userCars; let i = index">
+  <p>Index del array: {{i}}</p>
+  <p>nombre: {{ car.nombre }}</p>
+  <p>velocidad maxima: {{ car.velocidadMaxima }} Km/H</p>
+</ng-container>
+
+<ng-container *ngIf="false; else elseTemplate2">
+  <div>
+    <span>'Hola !!! estoy re rendered</span>
+  </div>
+</ng-container>
+<ng-template #elseTemplate2>
+    <span>'Hola !!! estoy re rendered por un else 2</span>
+</ng-template>
+<ng-template #elseTemplate3>
+    <span>'Hola !!! estoy re rendered por un else 3</span>
+</ng-template>
+<ng-template #elseTemplate>
+    <span>'Hola !!! estoy re rendered por un else</span>
+</ng-template>
+
+<div>Hola estoy por aca !</div>
+
+

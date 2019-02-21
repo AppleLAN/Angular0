@@ -1,3 +1,36 @@
-<p>
-  main works! Tu id es : {{idFromParams}}
-</p>
+<p>main works! Tu id es : {{ idFromParams }}</p>
+
+<form [formGroup]="myForm">
+  <label>
+    Email:
+    <input type="text" formControlName="email" [required]="!otraLogica" />
+  </label>
+
+  <label>
+    Password:
+    <input type="password" formControlName="password" />
+  </label>
+
+  <label>
+    Condicional:
+    <input type="text" formControlName="condicional" />
+  </label>
+  <button type="submit" [disabled]="!myForm.valid" (click)="submitForm()">Submit!</button>
+</form>
+
+<ng-container *ngIf="!myForm.valid; else formValidoTemplate">
+    <span>El form es invalido</span>
+</ng-container>
+<ng-template #formValidoTemplate>
+  <span>El form es valido !!</span>
+  Email:
+  {{ myForm.get('email').value }}
+
+  Password:
+  {{ myForm.get('password').value }}
+</ng-template>
+<div>
+  <span *ngIf="myForm.get('email').errors?.maxlength">El control email es invalido ya que supera los caracteres</span>
+  <span *ngIf="myForm.get('email').errors?.required">El control email es invalido ya que es requerido</span>
+  <span *ngIf="myForm.get('email').errors?.incluyeVocal">El control email es invalido ya que no contiene una vocal</span>
+</div>

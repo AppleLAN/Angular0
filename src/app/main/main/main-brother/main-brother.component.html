@@ -1,0 +1,9 @@
+<p>
+  main-brother works! the id of my father is {{ id }} and he is
+  <ng-container *ngIf="isAdult; else elseChildTemplate">
+    <span>is an adult</span>
+  </ng-container>
+  <ng-template #elseChildTemplate>
+    <span>is a child</span>
+  </ng-template>
+</p>

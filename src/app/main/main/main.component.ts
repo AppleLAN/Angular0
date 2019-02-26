@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { SharedService } from './shared.service';
 
 @Component({
   selector: 'app-main',
@@ -11,10 +12,12 @@ export class MainComponent implements OnInit {
   @Input() otraLogica = false;
   idFromParams: number;
   myForm: FormGroup;
+  fromBrother;
 
-  constructor(private route: ActivatedRoute, private formBuilder: FormBuilder) {}
+  constructor(private route: ActivatedRoute, private formBuilder: FormBuilder, private sharedService: SharedService) {}
 
   ngOnInit() {
+    this.sharedService.setData('hola');
     this.route.params.subscribe(params => {
       this.idFromParams = params['id'];
     });

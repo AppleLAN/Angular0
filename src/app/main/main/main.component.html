@@ -1,5 +1,5 @@
 <p>main works! Tu id es : {{ idFromParams }}</p>
-
+<!-- 
 <form [formGroup]="myForm">
   <label>
     Email:
@@ -33,4 +33,7 @@
   <span *ngIf="myForm.get('email').errors?.maxlength">El control email es invalido ya que supera los caracteres</span>
   <span *ngIf="myForm.get('email').errors?.required">El control email es invalido ya que es requerido</span>
   <span *ngIf="myForm.get('email').errors?.incluyeVocal">El control email es invalido ya que no contiene una vocal</span>
-</div>
+</div> -->
+
+<app-main-brother [id]="idFromParams" [(fromBrother)]="fromBrother"></app-main-brother>
+<app-main-brother2 [id]="idFromParams" [(fromBrother)]="fromBrother"></app-main-brother2>

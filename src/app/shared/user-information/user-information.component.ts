@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class UserInformationComponent implements OnInit {
   @Input() userInformation;
   showExample = false;
-
+  partnerInformation;
   userCars = [
     {
       nombre: 'up',

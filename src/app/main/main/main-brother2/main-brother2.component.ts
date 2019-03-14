@@ -17,6 +17,14 @@ export class MainBrother2Component implements OnInit, OnDestroy {
   ngOnInit() {
     this.isAdultFromBrother = this.fromBrother.isAdult;
     this.data = this.sharedService.getData();
+    this.sharedService.setBehaviorSubjectObservableData('hola soy tu hermano BehaviorSubject');
+    setTimeout(() => {
+      this.sharedService.setSubjectObservableData('hola soy tu hermano Subject');
+    }, 6000);
+
+    setTimeout(() => {
+      this.sharedService.setBehaviorSubjectObservableData('hola soy tu hermano BehaviorSubject del futuro');
+    }, 7000);
   }
 
   ngOnDestroy() {
